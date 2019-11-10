@@ -1,0 +1,29 @@
+module jicun(D,load,right,clk,Q);           
+
+     parameter  n=16;
+
+     input [n-1] D;
+
+     input load,right,clk;
+
+     output [n-1] reg  Q;
+
+     integer  k;
+
+ 
+
+     always  @(posedge clk)
+
+          if(load==1)
+
+               Q<=D;
+
+           else
+
+           begin
+
+               for(k=0;k<n-1;k=k+1)    
+
+                    Q[k]=Q[k+1];
+                    end
+      endmodule
